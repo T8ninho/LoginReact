@@ -1,5 +1,5 @@
  //importa o contexto
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Contexto } from './Context/UseContext';
 
 
