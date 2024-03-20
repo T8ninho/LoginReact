@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { signOut } from "firebase/auth";
-import { auth } from '../firebase';
+import { auth } from '../../firebaseAPI/firebase';
 import { useNavigate } from "react-router-dom";
 
 // Criar o contexto
