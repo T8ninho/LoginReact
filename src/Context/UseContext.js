@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { signOut } from "firebase/auth";
-import { auth } from '../../firebaseAPI/firebase';
+import { auth } from '../firebaseAPI/firebase';
 import { useNavigate } from "react-router-dom";
 
 // Criar o contexto
@@ -12,8 +12,6 @@ const ContextoProvider = ({ children }) => {
 		const UsuarioSalvo = localStorage.getItem('UsuarioLogado');
 		return UsuarioSalvo ? JSON.parse(UsuarioSalvo) : null;
 	});
-	
-	const [Logado, setLogado] = useState(user)
 
 	useEffect(() => {
 		const updateUser = (UsuarioLogado) => {
@@ -33,8 +31,6 @@ const ContextoProvider = ({ children }) => {
 	  }, []);
 	
 	const navigate = useNavigate();
-	
-	console.log(Logado)
 
 	function Sair(){
 		signOut(auth);
@@ -42,7 +38,7 @@ const ContextoProvider = ({ children }) => {
 	}
 
 	return(
-		<Contexto.Provider value={{user, setUser, Sair, Logado}}>
+		<Contexto.Provider value={{user, setUser, Sair}}>
 			{children}
 		</Contexto.Provider>
 	);
